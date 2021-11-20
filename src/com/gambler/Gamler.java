@@ -2,7 +2,6 @@ package com.gambler;
 
 public class Gamler {
 
-	
 	public static int dailyStake = 100; 							// Variable for Total Betting Balance 
 	public static int BET_PER_GAME = 1; 							// Variable for Betting amount per game
 	public static int lose_range = 50;
@@ -30,6 +29,7 @@ public class Gamler {
 							
 						}
 						if(dailyStake == 150) {
+							
 							//System.out.println("User reached 50% limit"); 
 							break;
 						}
@@ -41,24 +41,26 @@ public class Gamler {
 			return dailyStake;
 		}	
 		
-	public void days() {
+	public void eachMonth() {
 			
-		int days = 20;
+		int days = 30;
 		for (int i = 1; i <= days; i++) {
 			int result = gamble();
 			if(result == 150) {
 				total_won += 50;
+				System.out.println("\nGambler earned "+(result-100)+" on day"+i);
 			}
 			else{
 				total_loss -= 50;
+				System.out.println("\nGambler made a loss "+result+" on day"+i);
 			}
-			
+			dailyStake = 100;
 			}
-		System.out.println("The user has won $"+total_won+" in "+days+" days");
-		System.out.println("The user has loss $"+total_loss+" in "+days+" days");
+		
+		System.out.println("\nThe user has won $"+total_won+" in "+days+" days");
+		System.out.println("\nThe user has loss $"+total_loss+" in "+days+" days");
 		}
 	
 }
-
 
 
