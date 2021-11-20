@@ -11,7 +11,7 @@ public static void main(String[] args) {
 	System.out.println("Welcome to Gambling game\n\nYou are starting a game with Account balance = $"+ dailyStake);
 	System.out.println("\nFor Month \n\n");
 	
-	game.eachMonth();
+	game.decidePlaying();
 	
 	}
 

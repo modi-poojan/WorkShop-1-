@@ -12,7 +12,7 @@ public class Gamler {
 	int max_wins = 0;
 	int loss_count = 0;
 	int max_loss = 0;
-	
+	int total = 0;
 	int luckiestDay = 0;
 	int unluckiestDay = 0;
 	
@@ -41,6 +41,7 @@ public class Gamler {
 						if(dailyStake == 150) {
 							
 							//System.out.println("User reached 50% limit"); 
+							
 							break;
 						}
 						else if (dailyStake == 50) {
@@ -58,14 +59,16 @@ public class Gamler {
 			
 			int result = gamble();
 			if(result == 150) {
-				
+				total += 1;
 				total_won += 50;
 				System.out.println("\nGambler earned "+(result-100)+" on day"+i);
+				System.out.println("Value of total "+total);
 			}
 			else{
-				
+				total -= 1;
 				total_loss -= 50;
 				System.out.println("\nGambler made a loss "+result+" on day"+i);
+				System.out.println("Value of total "+total);
 			}
 			dailyStake = 100;
 			
@@ -90,6 +93,15 @@ public class Gamler {
 		System.out.println("\n Gamblers Unluckiest day was "+unluckiestDay);
 		}
 	
+	public void decidePlaying() {
+		int month = 1;
+		do {
+			System.out.println("Gambler has decided to play for "+month+" month");
+			month ++;
+			eachMonth();
+		}
+		while(total >= 0);
+	}
 }
 
 
